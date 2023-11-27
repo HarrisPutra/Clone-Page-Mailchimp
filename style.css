@@ -1,0 +1,881 @@
+*, html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --txt-primary : #ffe01b;
+    --txt-secondary : #241c15;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.plans {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    text-align: center;
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 13px;
+}
+.plans a {
+    text-decoration: dotted;
+    text-decoration-line: underline;
+    text-decoration-color: white;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+    color: white;
+}
+.plans:hover a {
+    text-decoration: none;
+}
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: .8%;
+    background-color: white;
+}
+
+.logo {
+    margin-left: 2%;
+    cursor: pointer;
+}
+.logo:hover {
+    background-color: rgb(230, 226, 226);
+}
+
+.nav-ul {
+    width: 25%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style-type: none;
+}
+
+.nav-ul a {
+    text-decoration: none;
+    color: var(--txt-secondary);
+}
+li:hover a {
+    background-color:rgb(230, 226, 226);
+    padding: 5px 0px;
+}
+
+.login-btn {
+    padding: 15px 25px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: white;
+    cursor: pointer;
+} 
+.login-btn:hover {
+    animation: .5s spin ease-out forwards;
+    position: relative;
+}
+
+                    /* ANIMASI BUTTON START ^^ SYNTAX CSS*/
+@keyframes spin {
+    from { bottom: 0;
+        box-shadow: 0;
+    }
+    to {
+        bottom: 4px;
+        box-shadow: 0 3px 0 0px;
+    }
+}
+                    /* ANIMASI BUTTON END */
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  height: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.dropdown input {
+    position: absolute;
+    width: 30px;
+    top: -2px;
+    height: 25px;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+} 
+
+.dropdown span:nth-child(2) {
+    transform-origin: 0 0;
+}
+.dropdown span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+.dropdown input:checked ~ span:nth-child(2) {
+    transform: rotate(45deg) translate( -1px, -1px);
+}
+.dropdown input:checked ~ span:nth-child(4) {
+    transform: rotate(-45deg);
+}
+.dropdown input:checked ~ span:nth-child(3) {
+    transform: scale(0);
+}
+
+.dropdown span {
+   background-color: black;
+   display: block;
+   width: 28px;
+   height: 3px;
+   border-radius: 3px;
+   transition: all 0.5s;
+}
+
+                        /* SIDE BAR START */
+.nav-side {
+    height: 100vh;
+    width: 30%;
+    background-color: wheat;
+    position: absolute; 
+    right: 0;
+    transform: translateX(100%);
+    transition: all 1s;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.nav-side.slide {
+    transform: translateX(0);
+}
+
+.nav-side ul{
+    /* margin-top: 20%; */
+    list-style-type: none;
+    font-size: 25px;
+}
+
+.nav-side li {
+    margin: 5% 7%;
+    width: 85%;
+    cursor: pointer;
+}
+.nav-side li:hover {
+    background-color: rgb(218, 187, 129);
+}
+.nav-side-service {
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 50%; */
+}
+.nav-side-service a {
+    width: 85%;
+    height: 30px;
+    margin: 5%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+}
+.nav-side-service a:hover {
+    background-color: rgb(218, 187, 129);
+}
+
+.languange-btn button{
+    background-color: wheat;
+    border: none;
+    gap: 10px;
+    width: 85%;
+    height: 30px;
+    margin-left: 5%;
+    display: flex;  
+    align-items: center;
+    text-align: left;
+    cursor: pointer;
+}
+.nav-side-service button:hover {
+    background-color: rgb(218, 187, 129);
+}
+
+.side-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 3%;
+}
+.side-login-btn {
+    padding: 15px 25px;
+    border: 1px solid black;
+    border-radius: 25px;
+    width: 90%;
+    background-color: white;
+    cursor: pointer;
+} 
+.side-login-btn:hover {
+    animation: .5s spin ease-out forwards;
+    position: relative;
+}
+.side-login-btn a{
+    color: var(--txt-secondary);
+    text-decoration: none;
+}
+.side-login-btn:nth-child(2) {
+    background-color: var(--txt-primary);
+}
+                        /* SIDE BAR END ! */
+
+.nav-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.nav-content h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.5em;
+    letter-spacing: 1px;
+    margin-top: 5%;
+}
+
+.nav-content h3 {
+    margin-top: 1.5%;
+    font-size: 1.8rem;
+    font-weight: lighter;
+}
+
+.nav-trial {
+    display: flex;
+    justify-content: center;
+    font-size: 1.1rem;
+    margin-top: 3%;
+}
+
+.nav-trial button {
+    padding: 15px 25px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: var(--txt-primary);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.nav-trial button a {
+    text-decoration: none;
+    color: var(--txt-secondary);
+}
+
+.trial-btn:hover {
+    animation: .5s spin ease-out forwards;
+    position: relative;
+}
+
+
+/* CARD START */
+
+.card-container {
+    position: relative;
+    display: flex;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.card1 {
+    width: 25%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgb(204, 139, 19);
+}
+.card1 img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card1-link {
+    cursor: pointer;
+}
+.card1-link:hover a{
+    text-decoration: line-through;
+    text-decoration-line: underline;
+}
+
+.card1-link a {
+    position: absolute;
+    top: 2%;
+    left: 1.5%;
+    max-width: 24%;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+}
+
+.card1-desc {
+    width: 100%;
+    font-size: 20px;
+    font-weight: lighter;
+    line-height: 1.5;
+    padding: 20px;
+    text-align: left;
+}
+
+.card1-btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.card1-btn button {
+    width: 85%;
+    padding: 15px 25px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: rgb(204, 139, 19);
+    cursor: pointer;
+}
+
+.card1-btn a {
+    color: black;
+    text-decoration: none;
+}
+.card1-btn:hover button{
+    animation: .5s spin ease-out forwards;
+    position: relative;
+}
+
+
+.card2 {
+    width: 25%;
+    background-color: rgb(235, 235, 235);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.card2 img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card2-link {
+    cursor: pointer;
+}
+.card2-link:hover a{
+    text-decoration: line-through;
+    text-decoration-line: underline;
+}
+
+.card2-link a {
+    position: absolute;
+    top: 2%;
+    left: 26.5%;
+    max-width: 21%;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+}
+
+.card2-desc {
+    width: 100%;
+    font-size: 20px;
+    font-weight: lighter;
+    line-height: 1.5;
+    padding: 20px;
+    text-align: left;
+}
+
+.card2-btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.card2-btn button {
+    width: 85%;
+    padding: 15px 25px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
+}
+.card2-btn:hover button{
+    animation: .5s spin ease-out forwards;
+    position: relative;
+}
+
+.card2-btn a {
+    color: black;
+    text-decoration: none;
+}
+.card3 {
+    width: 25%;
+    background-color: rgb(228, 181, 94);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card3 img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card3-link {
+    cursor: pointer;
+}
+.card3-link:hover a{
+    text-decoration: line-through;
+    text-decoration-line: underline;
+}
+
+.card3-link a {
+    position: absolute;
+    top: 2%;
+    left: 51.5%;
+    max-width: 25%;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+}
+
+.card3-desc {
+    width: 100%;
+    font-size: 20px;
+    font-weight: lighter;
+    line-height: 1.5;
+    padding: 20px;
+    text-align: left;
+}
+
+.card3-btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.card3-btn button {
+    width: 85%;
+    padding: 15px 25px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: rgb(228, 181, 94);
+    cursor: pointer;
+}
+
+.card3-btn a {
+    color: black;
+    text-decoration: none;
+}
+.card3-btn:hover button{
+    animation: .5s spin ease-out forwards;
+    position: relative;
+}
+
+.card4 {
+    width: 25%;
+    background-color: rgb(250, 231, 195);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card4 img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card4-link {
+    cursor: pointer;
+}
+.card4-link:hover a{
+    text-decoration: line-through;
+    text-decoration-line: underline;
+}
+
+.card4-link a {
+    position: absolute;
+    top: 2%;
+    left: 76.5%;
+    max-width: 20%;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+}
+
+.card4-desc {
+    width: 90%;
+    font-size: 20px;
+    font-weight: lighter;
+    line-height: 1.5;
+    padding: 20px;
+    text-align: left;
+}
+
+.card4-btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.card4-btn button {
+    width: 85%;
+    padding: 15px 25px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: rgb(250, 231, 195);
+    cursor: pointer;
+}
+
+.card4-btn a {
+    color: black;
+    text-decoration: none;
+}
+.card4-btn:hover button{
+    animation: .5s spin ease-out forwards;
+    position: relative;
+}
+
+/* ALTERNATIF IMAGE START ! */
+.card1-link img:nth-child(2) {
+    display: none;
+}
+.card2-link img:nth-child(2) {
+    display: none;
+}
+.card3-link img:nth-child(2) {
+    display: none;
+}
+.card4-link img:nth-child(2) {
+    display: none;
+}
+/* ALTERNATIF IMAGE END ! */
+
+
+/* CARD END */
+
+
+
+/* BREAKPOINT TABLET START */
+
+@media screen and (max-width : 991px) {
+    /* ALTERNATIF IMAGE RESPONSIVE START ! */
+    .card1-link img:nth-child(1) {
+        display: none;
+    }
+    .card1-link img:nth-child(2) {
+        display: block;
+    }
+    .card2-link img:nth-child(1) {
+        display: none;
+    }
+    .card2-link img:nth-child(2) {
+        display: block;
+    }
+    .card3-link img:nth-child(1) {
+        display: none;
+    }
+    .card3-link img:nth-child(2) {
+        display: block;
+    }
+    .card4-link img:nth-child(1) {
+        display: none;
+    }
+    .card4-link img:nth-child(2) {
+        display: block;
+    }
+    /* ALTERNATIF IMAGE RESPONSIVE END ! */
+
+    .nav-ul {
+        margin-right: 2%;
+        gap: 5px;
+    }
+
+    .card-container {
+        flex-wrap: wrap;
+    }
+
+    .card1 {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .card1-link {
+        width: 85%;
+        height: auto;
+        margin-top: 25%;
+    }
+
+    .card1-link a {
+        position: absolute;
+        top: 2%;
+        left: 3.5%;
+        max-width: 43%;
+        font-size: 3.5vw;
+        text-decoration: none;
+        color: black;
+    }
+    .card1-desc {
+        width: 90%;
+        font-size: 20px;
+        font-weight: lighter;
+        line-height: 1.5;
+        padding: 20px;
+        text-align: left;   
+    }
+    .card1-btn {
+        display: flex;
+        margin-right: auto;
+        margin-left: 7%;
+    }
+    .card1-btn button {
+        width: 100%;
+        padding: 15px 15px;
+        border: 1px solid black;
+        border-radius: 25px;
+        background-color: rgb(204, 139, 19);
+        cursor: pointer;
+        text-align: left;
+    }
+
+    .card2 {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .card2-link {
+        width: 85%;
+        height: auto;
+        margin-top: 25%;
+    }
+    .card2-link a {
+        position: absolute;
+        top: 2%;
+        left: 53.5%;
+        max-width: 43%;
+        font-size: 3.5vw;
+        text-decoration: none;
+        color: black;
+    }
+    .card2-desc {
+        width: 90%;
+        font-size: 20px;
+        font-weight: lighter;
+        line-height: 1.5;
+        padding: 20px;
+        text-align: left;
+    }
+    .card2-btn {
+        display: flex;
+        margin-right: auto;
+        margin-left: 7%;
+    }
+    .card2-btn button {
+        width: 100%;
+        padding: 15px 25px;
+        border: 1px solid black;
+        border-radius: 25px;
+        background-color: rgb(235, 235, 235);
+        cursor: pointer;
+    }
+
+    .card3 {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .card3-link {
+        width: 85%;
+        height: auto;
+        margin-top: 25%;
+    }
+    .card3-link a {
+        position: absolute;
+        top: 52.5%;
+        left: 3.5%;
+        max-width: 43%;
+        font-size: 3.5vw;
+        text-decoration: none;
+        color: black;
+    }
+    .card3-desc {
+        width: 90%;
+        font-size: 20px;
+        font-weight: lighter;
+        line-height: 1.5;
+        padding: 20px;
+        text-align: left;
+    }
+    .card3-btn {
+        display: flex;
+        margin-right: auto;
+        margin-left: 7%;
+    }
+    .card3-btn button {
+        width: 100%;
+        padding: 15px 25px;
+        border: 1px solid black;
+        border-radius: 25px;
+        background-color: rgb(228, 181, 94);
+        cursor: pointer;
+    }
+
+    .card4 {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .card4-link {
+        width: 85%;
+        height: auto;
+        margin-top: 25%;
+    }
+    .card4-link a {
+        position: absolute;
+        top: 52.5%;
+        left: 53.5%;
+        max-width: 43%;
+        font-size: 3.5vw;
+        text-decoration: none;
+        color: black;
+    }
+    .card4-desc {
+        width: 90%;
+        font-size: 20px;
+        font-weight: lighter;
+        line-height: 1.5;
+        padding: 20px;
+        text-align: left;
+    }
+    .card4-btn {
+        display: flex;
+        margin-right: auto;
+        margin-left: 7%;
+    }
+    .card4-btn button {
+        width: 100%;
+        padding: 15px 25px;
+        border: 1px solid black;
+        border-radius: 25px;
+        background-color: rgb(250, 231, 195);
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width : 750px) {
+    .plans {
+        font-size: 2.6vw;
+    }
+
+    .nav-ul {
+        margin-right: 0;
+        gap: 0;
+    }
+
+    .login-btn {
+        display: none;
+    }
+}
+
+/* BREAKPOINT TABLET END */
+
+
+/* BREAKPOINT SMARTPHONE START  */
+@media screen and (max-width : 575px) {
+    .plans {
+        font-size: 2.6vw;
+    }
+    .nav-content h1 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 7.5vw;
+        letter-spacing: 1px;
+        margin-top: 5%;
+    }
+    
+    .nav-content h3 {
+        margin-top: 1.5%;
+        font-size: 4.5vw;
+        font-weight: lighter;
+    }
+    .nav-trial button {
+        padding: 10px;
+        font-size: 3vw;
+    }
+
+    .card1 {
+        width: 100%;
+    }
+    .card1-link {
+        width: 90%;
+    }
+    .card1-link a{
+        top: 2.5%;
+        left: 8%;
+        width: 100%;
+        position: absolute;
+        max-width: 100%;
+        font-size: 6vw;
+        text-decoration: none;
+        color: black;
+    }
+
+    .card2 {
+        width: 100%;
+    }
+    .card2-link {
+        width: 90%;
+    }
+    .card2-link a{
+        top: 28%;
+        left: 8%;
+        width: 100%;
+        position: absolute;
+        max-width: 100%;
+        font-size: 6vw;
+        text-decoration: none;
+        color: black;
+    }
+    .card3 {
+        width: 100%;
+    }
+    .card3-link {
+        width: 90%;
+    }
+    .card3-link a {
+        top: 52.5%;
+        left: 8%;
+        width: 100%;
+        position: absolute;
+        max-width: 100%;
+        font-size: 6vw;
+        text-decoration: none;
+        color: black;
+    }
+    .card4 {
+        width: 100%;
+    }
+    .card4-link {
+        width: 90%;
+    }
+    .card4-link a {
+        top: 78%;
+        left: 8%;
+        width: 90%;
+        position: absolute;
+        max-width: 100%;
+        font-size: 6vw;
+        text-decoration: none;
+        color: black;
+    }
+}
+/* BREAKPOINT SMARTPHONE END */
